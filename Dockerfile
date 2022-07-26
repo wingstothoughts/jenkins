@@ -1,4 +1,4 @@
-FROM ubuntu:latest
-RUN apt update && apt install python -y
-RUN ["echo" , "this is from run command"]
-CMD ["python"]	
+FROM openjdk
+COPY target/*.jar /
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/my-app-1.0-SNAPSHOT.jar"]
